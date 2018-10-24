@@ -12,6 +12,7 @@ const photos = document.getElementById('photos');
 const photoButton = document.getElementById('photo-button');
 const clearButton = document.getElementById('clear-button');
 const photoFilter = document.getElementById('photo-filter');
+var sticker = document.getElementById('sticker');
 
 //Get media stream
 navigator.mediaDevices.getUserMedia({ video: true, audio: false })
@@ -55,7 +56,7 @@ photoFilter.addEventListener('change', function(e) {
     //set filter to chosen option
     filter = e.target.value;
     // set filter to vide
-    video.style.filter = filter;
+    sticker.src = filter;
     e.preventDefault();
 });
 

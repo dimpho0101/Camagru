@@ -140,3 +140,10 @@ footer .next {
     font-family: 'Courier New', Courier, monospace;
     color: lightgray;
 }
+
+#sticker {
+    position: absolute;
+    bottom: 150px;
+    width: 400px;
+    height: 300px;
+}
