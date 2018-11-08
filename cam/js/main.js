@@ -108,3 +108,9 @@ function takePicture() {
         photos.appendChild(img);
     }
 }
+
+// var can = document.getElementById("imgCanvas");
+// var img = document.getElementById("imageid");
+// var ctx = can.getContext("2d");
+// ctx.drawImage(img, 10, 10);
+// var encodedBase = can.toDataURL();
