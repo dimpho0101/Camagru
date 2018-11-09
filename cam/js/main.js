@@ -76,6 +76,12 @@ clearButton.addEventListener('click', function(e) {
 
 });
 
+function saveimg(img) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "saveimg.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send("img=" + img);
+}
 
 //take picture from canvas
 function takePicture() {
@@ -106,8 +112,10 @@ function takePicture() {
 
         //add image to photos
         photos.appendChild(img);
+        saveimg(imgUrl.split(',')[1]);
     }
 }
+
 
 // var can = document.getElementById("imgCanvas");
 // var img = document.getElementById("imageid");
