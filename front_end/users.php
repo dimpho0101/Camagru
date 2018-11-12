@@ -10,16 +10,15 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // sql to create table
-    $sql = "CREATE TABLE MyGuests (
+    $sql = "CREATE TABLE MyUsers (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    profilename VARCHAR(30) NOT NULL,
-    passwrd VARCHAR(30) NOT NULL,
-    email VARCHAR(50)
+    email VARCHAR(50) NOT NULL,
+    passwrd VARCHAR(30) NOT NULL
     )";
 
     // use exec() because no results are returned
     $conn->exec($sql);
-    echo "Table MyGuests created successfully";
+    echo "Table MyUsers created successfully";
     }
 catch(PDOException $e)
     {

@@ -2,8 +2,8 @@
 include 'db_con.php';
 if(isset($_POST["submit"])){
     try {
-        $sql = "INSERT INTO myguests (profilename, passwrd, email)
-        VALUES ('".$_POST["name"]."','".$_POST["password"]."','".$_POST["email"]."')";
+        $sql = "INSERT INTO myguests (profilename, email, passwrd)
+        VALUES ('".$_POST["name"]."','".$_POST["email"]."','".$_POST["password"]."')";
         // die($sql);
         if ($dbh->query($sql)) {
             echo "<script type= 'text/javascript'>alert('New Record Inserted Successfully');</script>";
@@ -20,4 +20,4 @@ if(isset($_POST["submit"])){
     
 }
 
-header('Refresh:0; url=dashboard.php');
+// header('Refresh:0; url=dashboard.php');

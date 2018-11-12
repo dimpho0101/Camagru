@@ -44,11 +44,11 @@
         </div>
         <header>MINIMALISTIC FORM</header>
 
-        <form id="form">
-            <input id="name" type="text" placeholder="PROFILE NAME OR EMAIL" required>
+        <form id="form" method="">
+            <input id="email" type="email" placeholder="EMAIL" required>
             <input id="password" type="password" placeholder="PASSWORD" required>
             <input id="submit" type="submit" value="SIGN IN">
-            <p><a href="#">Forgot password</p>
+            <p><a href="forgotpassword.php">Forgot password</p>
         </form>
 
         <div class="text">
