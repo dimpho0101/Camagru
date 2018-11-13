@@ -1,4 +1,9 @@
+<?php
+   include 'db_con.php';
+   
+   md5($_POST["password"]);
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 

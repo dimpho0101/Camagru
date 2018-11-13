@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "coding01";
-$dbname = "myDBPDO";
+$DB_NAME = 'Camagru';
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

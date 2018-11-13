@@ -48,15 +48,15 @@
                 <ul>
                     <li><a href="#Home">Camagru</a></li>
                     <li><a href="feed.html" target="_blank">Feed</a></li>
-                    <li><a href="signin.php" target="_blank">Sign in</a></li>
+                    <li><a href="signin.html" target="_blank">Sign in</a></li>
                     <li><a href="about.html" target="_blank">About</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="text">
+    <!-- <div class="text">
         <h1><i>For Creators, By creators</i></h1>
-    </div>
+    </div> -->
     <div class="image">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.36.png" width="150px" height=" 150px">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.20.png" width="150px" height=" 150px">
@@ -75,11 +75,11 @@
     <div class="image">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.36.png" width="150px" height=" 150px">
         <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.36.20.png" width="150px" height=" 150px">
-        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539527956/Screen_Shot_2018-10-14_at_16.38.21.png" width="150px" height=" 150px">
+        <img src="https://media.giphy.com/media/3oKIPcOfappH4z6uZ2/giphy.gif" width="150px" height=" 150px">
     </div>
     <div class="pagination">
         <a href="#">&laquo;</a>
-        <a href="feed2.php">1</a>
+        <a href="#">1</a>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
