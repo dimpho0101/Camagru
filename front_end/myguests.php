@@ -14,8 +14,8 @@ try {
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     profilename VARCHAR(30) NOT NULL,
     email VARCHAR(50),
-    passwrd VARCHAR(30) NOT NULL,
-    confirmpasswrd VARCHAR(30) NOT NULL
+    passwrd VARCHAR(150) NOT NULL,
+    confirmpasswrd VARCHAR(150) NOT NULL
     )";
 
     // use exec() because no results are returned

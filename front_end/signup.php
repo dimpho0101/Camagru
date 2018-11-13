@@ -1,16 +1,4 @@
-<?php
-        session_start();
-        try{
-            $con = new PDO ("mysql:host=localhost;dbname=mydbpdo", "root", "coding01");
-            if(isset($_POST['signup'])){
-                $name = $_POST['name'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $cpassword = $_POST['cpasword'];
 
-            }
-        }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
