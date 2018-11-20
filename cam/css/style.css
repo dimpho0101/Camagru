@@ -149,3 +149,18 @@ footer .next {
     right: 250px;
     margin-bottom: 250px;
 }
+
+
+div {
+    max-width: 960px;
+  }
+
+img { 
+      display: inline-block;
+      max-width: 20%;
+      height: 20px;
+      width: 20px;
+      margin-left: 200px;
+      text-align: center;
+
+  }

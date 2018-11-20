@@ -11,6 +11,14 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <header>
         <div class="container">
             <div id="logo">
@@ -27,7 +35,7 @@
         </div>
     </header>
     <div class="navbar">
-        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539518111/Screen_Shot_2018-10-14_at_13.54.56.png" height="100px" width="100px">
+        <img src="https://res.cloudinary.com/dljvavcko/image/upload/v1539518111/Screen_Shot_2018-10-14_at_13.54.56.png" height="50px" width="50px">
         <h1>Camagru Snap</h1>
     </div>
     <div class="top-container" style="position:relative">
@@ -60,9 +68,14 @@
         <div id="photos"></div>
     </div>
     <footer>
-        <div class="next">
-            <p><a href="#comments">Share with friends</a></p>
-        </div>
+        <!-- <div>
+            <a href="#"></a><img src="https://res.cloudinary.com/dwl0dq3sv/image/upload/v1542709468/share-raw-512.png" alt="Share with friends"/></a>
+            <a href="#"></a><img src="https://res.cloudinary.com/dwl0dq3sv/image/upload/v1542710884/twitter-png-picture-5a2301683c6206.6917714115122435602473.jpg" alt="share on twitter" /></a>
+            <a href="#home">
+            <img src="https://res.cloudinary.com/dwl0dq3sv/image/upload/v1542710982/kisspng-computer-icons-logo-photography-instagram-icon-instagram-5b4c0f1e2ab983.830384891531711262175.jpg" alt="share on instagram" />
+            </a>
+        </div>    -->
+        <div class="fb-share-button" data-href="http://localhost:8080/camagru/cam/#home" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2Fcamagru%2Fcam%2F%23home&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
     </footer>
 </body>
 <script src="js/main.js"></script>
