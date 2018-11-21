@@ -9,15 +9,14 @@ if (isset($_POST['submit'])){
     $fileType = $_FILES['file']['type'];
 
     $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower('end($fileExt)');
-
+    $fileActualExt = strtolower(end($fileExt));
     $allowed = array('jpg', 'jpeg', 'png');
 
     if(in_array($fileActualExt, $allowed)){
         if($fileError === 0) {
             if($fileSize < 5000000){
                 $fileNameNew = uniqid('', true). ".".$fileActualExt;
-                $fileDestination = 'uploads/' .$fileNameNew;
+                $fileDestination = $fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
                 header("Location: index.php?uploadsuccess");
             } else {

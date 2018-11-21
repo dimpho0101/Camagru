@@ -7,8 +7,13 @@
     <title>Upload Image</title>
 </head>
 <body>
+<select id="photo-filter" class="select">
+<option value="none">Normal</option>
+<option value="./imgs/Alien-PNG-Picture.png">Alien</option>
+</select>
     <form action="upload.php" method="POST" enctype="multipart/form-data">
     <input type="file" name="file">
     <button type="submit" name="submit">UPLOAD</button>
+    
 </body>
 </html>
