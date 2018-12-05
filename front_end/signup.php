@@ -1,7 +1,50 @@
 <?php
-   include 'db_con.php';
-   
-   md5($_POST["password"]);
+   include './includes/header_inc.php';
+   if ($_SERVER['REQUEST_METHOD'] === 'POST') { //server if the request type is a post
+    if (isset($_POST['uname'], $_POST['email'], $_POST['password'])) { //check if all variables are set
+        $uname = htmlentities(trim($_POST['uname']), ENT_QUOTES, 'UTF-8');
+        $email = htmlentities(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
+        $password = hash('whirlpool', trim($_POST['password']));
+        $token = md5(md5(time().$email.rand(0,9999)));
+        
+        //check if user exists
+        $sql = $conn->prepare("SELECT COUNT(*) FROM users WHERE `email` = ? OR `username` = ?");
+        $sql->execute(array($email, $uname));
+        if ($sql->fetchColumn()){
+            echo 'Email and/or username already exists';
+        } else{
+            //insert the data into the database
+            $stmt = $conn->prepare("INSERT INTO `users`(`username`, `email`, `password`, `verify_token`) VALUES(?,?,?,?)");
+            $stmt->execute(array($uname, $email, $password,$token));
+            //if ($stmt->rowCount()){
+                $localhost= "localhost:8081/backend";
+                $subject = "Comfirmation process";
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+                $headers .= 'From: <diputu@42.FR>' . "\r\n";
+                $message = '
+                <html>
+                    <head>
+                        <title>' . $subject . '</title>
+                    </head>
+                    <body>
+                        Hello ' . htmlspecialchars($uname) . ' </br>
+                        sign up request has been recieved to finish the  subscribtion process please click the link below </br>
+                        <a href="http://' . $localhost . '/verify.php?email=' .$email. '&token=' . $token. '">confirm email</a>
+                    </body>
+                </html>
+                ';
+                mail($email, $subject, $message, $headers);
+                header('location: open.php?msg="Registration Successful. Check Your Email To Verify Your Account"');
+                // echo "<script>alert('Please check your email to verify your account');</script>";
+
+                echo 'Please check your email to verify your account';
+            //} else{
+              //  echo "There was an error creating account";
+            //}
+        }
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -50,26 +93,11 @@
         </div>
         <header>MINIMALISTIC FORM</header>
 
-        <form id="form" action="welcome.php" method="post" onsubmit="return Validate()" name="vform">
-        <div id="username_div">
-            <input name="name" id="name" type="text" placeholder="CREATE PROFILE NAME">
-            <div id="name_error" class="val_error"></div>
-        </div>
-        <div id="email_div">
-            <input name="email" id="name" type="email" placeholder="EMAIL">
-            <div id="email_error" class="val_error"></div> 
-        </div>
-        <div id="password_div">
-            <input name="password" id="password" type="password" placeholder="PASSWORD">
-            <div id="password_error" class="val_error"></div>
-        </div>
-        <div id="pass_confirm_div">
-            <input name="cpassword" id="password" type="password" placeholder="CONFIRM PASSWORD">
-            <div id="password_error"></div>
-        </div>
-        <div>
+        <form id="form" method="post" >
+            <input name="uname" id="uname" type="text" placeholder="CREATE PROFILE NAME" required>
+            <input name="email" id="name" type="email" placeholder="EMAIL" required>
+            <input name="password" id="password" type="password" placeholder="PASSWORD"required>
             <input id="submit" name="submit" type="submit" value="SIGN UP">
-        </div>
         </form>
 
        </html>
