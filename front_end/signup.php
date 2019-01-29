@@ -17,7 +17,7 @@
             $stmt = $conn->prepare("INSERT INTO `users`(`username`, `email`, `password`, `verify_token`) VALUES(?,?,?,?)");
             $stmt->execute(array($uname, $email, $password,$token));
             //if ($stmt->rowCount()){
-                $localhost= "localhost:8081/backend";
+                $localhost= "localhost:8080/camagru";
                 $subject = "Comfirmation process";
                 $headers  = 'MIME-Version: 1.0' . "\r\n";
                 $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
@@ -30,7 +30,7 @@
                     <body>
                         Hello ' . htmlspecialchars($uname) . ' </br>
                         sign up request has been recieved to finish the  subscribtion process please click the link below </br>
-                        <a href="http://' . $localhost . '/verify.php?email=' .$email. '&token=' . $token. '">confirm email</a>
+                        <a href="http://' . $localhost . '/front_end/verify.php?email=' .$email. '&token=' . $token. '">confirm email</a>
                     </body>
                 </html>
                 ';
