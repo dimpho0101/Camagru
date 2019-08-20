@@ -79,20 +79,21 @@ clearButton.addEventListener('click', function(e) {
 
 });
 
-function saveimg(img, stick) {
+function saveimg(imgUrlSend, stick) {
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "saveimg.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = function(){
         if (xhttp.readyState == 4 && xhttp.status == 200)
         {
-            alert(xhttp.response);
+            console.log("fuck")
+            console.log(xhttp.response);
         }
     }
     if (stick != ""){
-        xhttp.send("img=" + img + "&stick=" + stick);
+        xhttp.send("img=" + imgUrlSend + "&stick=" + stick);
     } else {
-        xhttp.send("img=" + img);
+        xhttp.send("img=" + imgUrlSend);
     }
 }
 
@@ -111,15 +112,15 @@ function takePicture() {
 
         // draw an image of the video on the canvas
         context.drawImage(video, 0, 0, width, height);
+        context2.drawImage(video, 0, 0, width, height);
         context.drawImage(sticker,0, 0, width, height);
 
         //create image from the canvas
 
-        const imgUrl = canvas.toDataURL('image/png');
-        const imgUrl2 = canvas2.toDataURL('image/png');
+        const imgUrl = canvas.toDataURL();
+        const imgUrl2 = canvas2.toDataURL();
+        // console.log(imgUrl);
 
-
-        console.log(imgUrl);
 
         // create img element
         const img = document.createElement('img');
@@ -134,6 +135,7 @@ function takePicture() {
 
         //add image to photos
         photos.appendChild(img);
-        saveimg(imgUrl2.split(',')[1], sticker);
+        // saveimg(imgUrl2.split(',')[1], sticker);
+        saveimg(imgUrl, sticker);
     }
 }
